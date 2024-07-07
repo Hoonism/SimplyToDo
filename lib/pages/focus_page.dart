@@ -10,12 +10,21 @@ class FocusPage extends StatefulWidget {
 class _FocusPageState extends State<FocusPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text(
-          "Focus Page",
-          style: TextStyle(color: Colors.white),
-        ),
+        child: Builder(builder: (context) {
+          return SizedBox(
+            width: 150,
+            height: 55,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text("Start", style: TextStyle(fontSize: 19)),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 44, 104, 244),
+                  foregroundColor: Colors.white),
+            ),
+          );
+        }),
       ),
     );
   }

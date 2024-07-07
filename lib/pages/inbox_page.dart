@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'todo_tile.dart';
+
 class InboxPage extends StatefulWidget {
   const InboxPage({super.key});
 
@@ -10,11 +12,22 @@ class InboxPage extends StatefulWidget {
 class _InboxPageState extends State<InboxPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text(
-          "Inbox Page",
-          style: TextStyle(color: Colors.white),
+        child: ListView(
+          children: [
+            TodoTile(
+              taskName:
+                  "Double click or click checkbx to mark task as completedDouble click or click checkbx to mark task as completedDouble click or click checkbx to mark task as completedDouble click or click checkbx to mark task as completeds",
+              taskCompleted: false,
+              onChanged: (p0) {},
+            ),
+            TodoTile(
+              taskName: "Double click or c",
+              taskCompleted: false,
+              onChanged: (p0) {},
+            ),
+          ],
         ),
       ),
     );

@@ -13,13 +13,13 @@ class IntroPage extends StatefulWidget {
 }
 
 class _IntroPageState extends State<IntroPage> {
+  PageController _pageController = PageController(initialPage: 0);
   int _selectedIndex = 0;
   final List _pages = [InboxPage(), FocusPage(), StatPage()];
 
   void navigateBottomBar(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    _pageController.animateToPage(index,
+        duration: Duration(milliseconds: 300), curve: Curves.ease);
   }
 
   void addTask() {
@@ -40,6 +40,12 @@ class _IntroPageState extends State<IntroPage> {
     );
   }
 
+  void changePage(index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +59,13 @@ class _IntroPageState extends State<IntroPage> {
                 onPressed: changeDisplayMode,
                 icon: const Icon(Icons.more_horiz, size: 32))
           ]),
-      body: _pages[_selectedIndex],
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: changePage,
+        children: [InboxPage(), FocusPage(), StatPage()],
+      ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.only(left: 8.0, right: 22.0),
         child: SizedBox(
           width: 69,
           height: 69,

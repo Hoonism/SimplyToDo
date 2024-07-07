@@ -38,7 +38,7 @@ class DisplayOptionPage extends StatelessWidget {
                     child: Text(
                       "Chronological",
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                     ),
                   ),
                 ),
@@ -56,7 +56,7 @@ class DisplayOptionPage extends StatelessWidget {
                     child: Text(
                       "Folder",
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                     ),
                   ),
                 ),
@@ -74,7 +74,7 @@ class DisplayOptionPage extends StatelessWidget {
                     child: Text(
                       "Calendar",
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                     ),
                   ),
                 ),
@@ -92,7 +92,7 @@ class DisplayOptionPage extends StatelessWidget {
                     child: Text(
                       "Custom",
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                     ),
                   ),
                 ),
