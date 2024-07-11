@@ -22,15 +22,6 @@ class _IntroPageState extends State<IntroPage> {
         duration: Duration(milliseconds: 300), curve: Curves.ease);
   }
 
-  void addTask() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AddTaskPage();
-      },
-    );
-  }
-
   void changeDisplayMode() {
     showDialog(
       context: context,
@@ -64,26 +55,6 @@ class _IntroPageState extends State<IntroPage> {
         onPageChanged: changePage,
         children: [InboxPage(), FocusPage(), StatPage()],
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(left: 8.0, right: 22.0),
-        child: SizedBox(
-          width: 69,
-          height: 69,
-          child: FloatingActionButton(
-            onPressed: addTask,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(50.0),
-              ),
-            ),
-            child: const Icon(
-              Icons.add,
-              color: Colors.white,
-              size: 40,
-            ),
-          ),
-        ),
-      ),
       drawer: const Drawer(
         child: Column(
           children: [
@@ -101,7 +72,7 @@ class _IntroPageState extends State<IntroPage> {
                   padding: EdgeInsets.symmetric(horizontal: 4.0),
                   child: Text(
                     "Inbox",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
               ),
@@ -117,7 +88,7 @@ class _IntroPageState extends State<IntroPage> {
                   padding: EdgeInsets.symmetric(horizontal: 4.0),
                   child: Text(
                     "Programming",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
               ),
@@ -133,7 +104,7 @@ class _IntroPageState extends State<IntroPage> {
                   padding: EdgeInsets.symmetric(horizontal: 4.0),
                   child: Text(
                     "School",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
               ),
@@ -149,7 +120,7 @@ class _IntroPageState extends State<IntroPage> {
                   padding: EdgeInsets.symmetric(horizontal: 4.0),
                   child: Text(
                     "Market",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
               ),

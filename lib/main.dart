@@ -19,6 +19,11 @@ class MyApp extends StatelessWidget {
           primary: Color.fromARGB(255, 44, 104, 244), // 주요 색상
           secondary: Color.fromARGB(255, 44, 104, 244), // 보조 색상
         ),
+        textTheme: TextTheme(
+          bodyLarge: TextStyle(fontSize: 20.0),
+          bodyMedium: TextStyle(fontSize: 18.0),
+          bodySmall: TextStyle(fontSize: 16.0),
+        ),
       ),
     );
   }
