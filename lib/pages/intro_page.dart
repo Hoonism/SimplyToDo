@@ -16,6 +16,7 @@ class _IntroPageState extends State<IntroPage> {
   PageController _pageController = PageController(initialPage: 0);
   int _selectedIndex = 0;
   final List _pages = [InboxPage(), FocusPage(), StatPage()];
+  final List _pagetitles = ["Tasks", "Focus", "Statistics"];
 
   void navigateBottomBar(int index) {
     _pageController.animateToPage(index,
@@ -41,8 +42,8 @@ class _IntroPageState extends State<IntroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text(
-            "Tasks",
+          title: Text(
+            _pagetitles[_selectedIndex],
             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 21),
           ),
           actions: [

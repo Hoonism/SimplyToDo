@@ -10,7 +10,7 @@ class FocusPage extends StatefulWidget {
 }
 
 class _FocusPageState extends State<FocusPage> {
-  int seconds = 55;
+  int seconds = 0;
   int minutes = 0;
   bool started = false;
   String padSec = "00";

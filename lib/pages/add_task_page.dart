@@ -21,7 +21,46 @@ class _AddTaskPageState extends State<AddTaskPage> {
       child: Container(
         height: 120,
         width: 1000,
-        child: TextField(autofocus: true),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 14.0, right: 10, top: 5),
+              child: TextField(
+                autofocus: true,
+                decoration: InputDecoration(
+                  hintText: "Add Task",
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Row(
+                    children: [
+                      Icon(Icons.calendar_month,
+                          color: Color.fromARGB(255, 44, 104, 244), size: 26),
+                      SizedBox(width: 4),
+                      Text("Today",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 44, 104, 244),
+                              fontSize: 16)),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.add_circle,
+                          color: Color.fromARGB(255, 44, 104, 244), size: 34)),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
