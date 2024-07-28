@@ -5,11 +5,14 @@ class TodoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
   Function(bool?)? onChanged;
+  Function(BuildContext)? deleteFunction;
+
   TodoTile(
       {super.key,
       required this.taskName,
       required this.taskCompleted,
-      required this.onChanged});
+      required this.onChanged,
+      required this.deleteFunction});
 
   @override
   Widget build(BuildContext context) {

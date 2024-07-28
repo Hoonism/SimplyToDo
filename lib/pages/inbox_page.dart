@@ -11,13 +11,44 @@ class InboxPage extends StatefulWidget {
 }
 
 class _InboxPageState extends State<InboxPage> {
+  final _controller = TextEditingController();
+  List toDoList = [
+    ["Make Tutorial", false],
+    ["Do Exercise", false],
+  ];
+
+  void checkBoxChanged(bool? value, int index) {
+    setState(() {
+      toDoList[index][1] = !toDoList[index][1];
+      deleteTask(index);
+    });
+  }
+
+  void saveNewTask() {
+    setState(() {
+      toDoList.add([_controller.text, false]);
+      _controller.clear();
+      print(toDoList[0][0]);
+    });
+    Navigator.of(context).pop();
+  }
+
   void addTask() {
     showDialog(
       context: context,
       builder: (context) {
-        return AddTaskPage();
+        return AddTaskPage(
+          controller: _controller,
+          onSave: saveNewTask,
+        );
       },
     );
+  }
+
+  void deleteTask(int index) {
+    setState(() {
+      toDoList.removeAt(index);
+    });
   }
 
   @override
@@ -44,22 +75,17 @@ class _InboxPageState extends State<InboxPage> {
         ),
       ),
       body: Center(
-        child: ListView(
-          children: [
-            TodoTile(
-              taskName:
-                  "Double click or click checkbx to mark task as completedDouble click or click checkbx to mark task as completedDouble click or click checkbx to mark task as completedDouble click or click checkbx to mark task as completeds",
-              taskCompleted: false,
-              onChanged: (p0) {},
-            ),
-            TodoTile(
-              taskName: "Double click or c",
-              taskCompleted: false,
-              onChanged: (p0) {},
-            ),
-          ],
-        ),
-      ),
+          child: ListView.builder(
+        itemCount: toDoList.length,
+        itemBuilder: (context, index) {
+          return TodoTile(
+            taskName: toDoList[index][0],
+            taskCompleted: toDoList[index][1],
+            onChanged: (value) => checkBoxChanged(value, index),
+            deleteFunction: (context) => deleteTask,
+          );
+        },
+      )),
     );
   }
 }

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class AddTaskPage extends StatefulWidget {
-  const AddTaskPage({super.key});
+class AddTaskPage extends StatelessWidget {
+  final controller;
+  VoidCallback onSave;
 
-  @override
-  State<AddTaskPage> createState() => _AddTaskPageState();
-}
+  AddTaskPage({
+    super.key,
+    required this.controller,
+    required this.onSave,
+  });
 
-class _AddTaskPageState extends State<AddTaskPage> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -27,6 +29,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
               padding: const EdgeInsets.only(left: 14.0, right: 10, top: 5),
               child: TextField(
                 autofocus: true,
+                controller: controller,
                 decoration: InputDecoration(
                   hintText: "Add Task",
                   border: InputBorder.none,
@@ -53,7 +56,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   child: IconButton(
-                      onPressed: () {},
+                      onPressed: onSave,
                       icon: Icon(Icons.add_circle,
                           color: Color.fromARGB(255, 44, 104, 244), size: 34)),
                 ),
